@@ -11,6 +11,7 @@ namespace SeleniumTestImage
         private Image test = null;
         private Image difference = null;
         private Color diffColor = Color.Red;
+        int eps = 8;
 
         private Dictionary<int, int> pixelTolerance = null;
         private string dirPath = null;
@@ -143,7 +144,9 @@ namespace SeleniumTestImage
             {
                 for (int h = 0; h < prodBmp.Height; ++h)
                 {
-                    if (prodBmp.GetPixel(w, h) != testBmp.GetPixel(w, h))
+                    if ((Math.Abs(prodBmp.GetPixel(w, h).R - testBmp.GetPixel(w, h).R) > eps) ||
+                        (Math.Abs(prodBmp.GetPixel(w, h).G - testBmp.GetPixel(w, h).G) > eps) ||
+                        (Math.Abs(prodBmp.GetPixel(w, h).B - testBmp.GetPixel(w, h).B) > eps))
                     {
                         FillPexelsToleranceContainer(w, h);
                     }
@@ -189,7 +192,7 @@ namespace SeleniumTestImage
             foreach (int key in keys)
             {
                 // 7 amount of tolerance pixels in rectangle
-                if (pixelTolerance[key] < 35)
+                if (pixelTolerance[key] < 4)
                 {
                     removeKeys.Add(key);
                 }
