@@ -49,7 +49,7 @@ namespace SeleniumTestImage
                 pageText = Regex.Replace(pageText, @"\r\n ", "\r\n");
             } while (temp != pageText);
 
-            pageText = Regex.Replace(pageText, @"February 2018\s+11US18EBC0006", "February 2018\r\n11US18EBC0006");
+            pageText = Regex.Replace(pageText, @"February 2018\s+11US", "February 2018\r\n11US");
             return pageText;
         }
     }
