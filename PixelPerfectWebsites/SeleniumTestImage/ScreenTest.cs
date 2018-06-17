@@ -58,8 +58,8 @@ namespace SeleniumTestImage
             }
             Directory.CreateDirectory(fullPath);
 
-            string prodText = GetPage.GetTextFromPage(_driver, prodUrl);
-            string testText = GetPage.GetTextFromPage(_driver, testUrl);
+            string prodText = GetText.GetTextFromPage(_driver, prodUrl);
+            string testText = GetText.GetTextFromPage(_driver, testUrl);
             File.WriteAllText(fullPath + "prod.txt", prodText);
             File.WriteAllText(fullPath + "test.txt", testText);
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumTestImage
 {
-    class GetPage
+    class GetText
     {
 
         public static string GetTextFromPage(IWebDriver driver, string pageUrl)
